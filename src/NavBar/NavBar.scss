@@ -1,0 +1,19 @@
+.h2-blinker {
+  background-color: #282c34;
+  border-radius: 12px;
+  padding: 10% 115% 10% 20%;
+  height: inherit;
+  margin: auto;
+}
+
+.span-blinker {
+  animation: blinkingText 1s infinite;
+}
+
+@keyframes blinkingText{
+  0%{     color: #fff;    }
+  49%{    color: #fff;    }
+  60%{    color: transparent; }
+  99%{    color: transparent; }
+  100%{   color: #fff;    }
+}
