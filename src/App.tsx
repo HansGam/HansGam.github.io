@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';
+import NavBar from "./NavBar/NavBar";
+import About from "./About/About";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Switch>
+                <div className="App">
+                    <NavBar/>
+                    <Route exact path="/">
+                    </Route>
+                    <Route exact path="/">
+                        <Redirect to="/about" />
+                    </Route>
+                    <Route exact path="/about">
+                        <About />
+                    </Route>
+                    <Route path='/linkedin' component={() => {
+                        window.location.href = 'https://www.linkedin.com/in/hans-gamboa-073808155/';
+                        return null;
+                    }}/>
+                    <Route path='/projects' component={() => {
+                        window.location.href = 'https://github.com/HansGam';
+                        return null;
+                    }}/>
+                    <Route path='/contact' component={() => {
+                        window.location.href = 'mailto:hdgamboa@gmail.com';
+                        return null;
+                    }}/>
+                </div>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
