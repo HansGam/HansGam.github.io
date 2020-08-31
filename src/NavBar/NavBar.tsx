@@ -116,7 +116,7 @@ export default function NavBar() {
                             </h2>
                         </Slide>
                     </Grid>
-                    <Hidden initialWidth='xs' smUp>
+                    <Hidden lgUp>
                         <Grid item>
                             <IconButton
                                 onClick={handleDrawerToggle}
@@ -142,7 +142,7 @@ export default function NavBar() {
                             {drawer}
                         </Drawer>
                     </Hidden>
-                    <Hidden xsDown>
+                    <Hidden mdDown>
                         <Slide direction="down" timeout={1200} in={true}>
                             <Grid item xs={1} >
                                 <Button className='navbar-button' component={Link} to="/linkedin" color="inherit"
