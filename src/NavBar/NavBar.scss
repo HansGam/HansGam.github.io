@@ -1,12 +1,27 @@
 .h2-blinker {
-  background-color: #282c34;
+  background-color: #112D32;
   border-radius: 12px;
   padding: 10% 115% 10% 20%;
   height: inherit;
   margin: auto;
+  color: #E9E9E9;
+  font-family: 'Lucida Console';
 }
 
+.appbar-homelink {
+    text-decoration: none !important;
+}
 
+.drawer {
+  background: #4EB1BA;
+  padding-bottom: 100%;
+  color: #E9E9E9;
+}
+
+.navbar-button {
+  color: #E9E9E9;
+  font-weight: bold;
+}
 .span-blinker {
   animation: blinkingText 1s infinite;
 }

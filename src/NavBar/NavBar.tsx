@@ -1,12 +1,12 @@
 import {
     AppBar,
-    Box,
     Button,
-    CssBaseline,
     Drawer,
+    Grid,
     Hidden,
     IconButton,
     List,
+    ListItem,
     ListItemText,
     Slide
 } from "@material-ui/core";
@@ -16,10 +16,14 @@ import {Link} from "react-router-dom";
 import './NavBar.scss';
 import {makeStyles} from "@material-ui/core/styles";
 import useTheme from "@material-ui/core/styles/useTheme";
-import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import MenuIcon from '@material-ui/icons/Menu';
-import {CloseSharp} from "@material-ui/icons";
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import PortraitOutlinedIcon from '@material-ui/icons/PortraitOutlined';
+import {Link as MaterialLink} from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -39,10 +43,10 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: drawerWidth,
         },
     },
-    // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
         width: drawerWidth,
+        background: '#4EB1BA',
     },
     content: {
         flexGrow: 1,
@@ -58,61 +62,80 @@ export default function NavBar() {
     const handleDrawerToggle = () => {
         setMobile(!isMobile);
     }
+    const renderIcon = (label: String) => {
+        switch (label) {
+            case 'LinkedIn':
+                return <LinkedInIcon fontSize='large' color='primary' />;
+            case 'Projects':
+                return <GitHubIcon fontSize='large' color='action' />;
+            case 'Contact':
+                return <MailOutlineIcon fontSize='large' color='disabled' />;
+            case 'Resume':
+                return <PortraitOutlinedIcon fontSize='large' color='error' />;
+        }
+    }
     const drawer = (
-            <div>
-                <Box ml="77%" mt="2%">
+        <div className="drawer">
                 <IconButton
                     onClick={handleDrawerToggle}
                     color="inherit"
                 >
-                    <CloseSharp/>
+                    <ChevronRightIcon />
                 </IconButton>
-                <div className={classes.toolbar}/>
-                <Divider/>
-                </Box>
-                <List>
-                    {['About Me', 'LinkedIn', 'Projects', 'Contact', 'Resume'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemText primary={text}/>
-                        </ListItem>
-                    ))}
-                </List>
-            </div>
+            <Divider/>
+            <List>
+                {['LinkedIn', 'Projects', 'Contact', 'Resume'].map((text, index) => (
+                    <ListItem component={Link} to={'/' + text.toLowerCase()}>
+                        <Grid container direction="row" alignItems="center" spacing={3}>
+                            <Grid item xs={3}>
+                                {renderIcon(text)}
+                            </Grid>
+                            <Grid item xs={3}>
+                                <ListItemText primary={text} style={{color: '#E9E9E9', fontWeight: 'bold'}}/>
+                            </Grid>
+                        </Grid>
+                    </ListItem>
+                ))}
+            </List>
+        </div>
     )
 
 
     return (
-        <div className={classes.root}>
-            <CssBaseline/>
-            <AppBar position="static">
-                <Toolbar>
-                    <Box height="auto">
+        <AppBar style={{background: '#4EB1BA', marginBottom: '55%'}}>
+            <Toolbar>
+                <Grid container direction="row" justify="space-between" alignItems="center" spacing={1}>
+                    <Grid item>
                         <Slide direction="down" timeout={1000} in={true}>
                             <h2 className="h2-blinker">
-                                \Hans>
+                                <MaterialLink color="inherit" href="https://HansGam.github.io/" className="appbar-homelink">
+                                    Hans
+                                </MaterialLink>
+                                &nbsp;>
                                 <span className="span-blinker">_</span>
                             </h2>
                         </Slide>
-                    </Box>
+                    </Grid>
                     <Hidden initialWidth='xs' smUp>
-                        <Box pl="65%">
+                        <Grid item>
                             <IconButton
                                 onClick={handleDrawerToggle}
                                 color="inherit"
                             >
                                 <MenuIcon/>
                             </IconButton>
-                        </Box>
+                        </Grid>
                         <Drawer
                             variant="temporary"
                             anchor='right'
                             open={isMobile}
                             onClose={handleDrawerToggle}
+                            color="inherit"
                             classes={{
                                 paper: classes.drawerPaper,
                             }}
                             ModalProps={{
-                                keepMounted: true, // Better open performance on mobile.
+                                keepMounted: true,
                             }}
                             elevation={2}
                         >
@@ -121,33 +144,34 @@ export default function NavBar() {
                     </Hidden>
                     <Hidden xsDown>
                         <Slide direction="down" timeout={1200} in={true}>
-                            <Box pl="5%" pr="2%">
-                                <Button component={Link} to="/about" color="inherit"> About Me </Button>
-                            </Box>
+                            <Grid item xs={1} >
+                                <Button className='navbar-button' component={Link} to="/linkedin" color="inherit"
+                                        style={{color: '#E9E9E9', fontWeight: 'bold'}}> LinkedIn </Button>
+                            </Grid>
                         </Slide>
                         <Slide direction="down" timeout={1350} in={true}>
-                            <Box pr="2%">
-                                <Button component={Link} to="/linkedin" color="inherit"> LinkedIn </Button>
-                            </Box>
+                            <Grid item xs={1} >
+                                <Button className='navbar-button' component={Link} to="/projects" color="inherit"
+                                        style={{color: '#E9E9E9', fontWeight: 'bold'}}> Projects </Button>
+                            </Grid>
                         </Slide>
                         <Slide direction="down" timeout={1500} in={true}>
-                            <Box pr="2%">
-                                <Button component={Link} to="/projects" color="inherit"> Projects </Button>
-                            </Box>
+                            <Grid item xs={1} >
+                                <Button className='navbar-button' component='a' href="mailto:hdgamboa@gmail.com"
+                                        color="inherit"
+                                        style={{color: '#E9E9E9', fontWeight: 'bold'}}> Contact </Button>
+                            </Grid>
                         </Slide>
+                        <Grid item xs={4}/>
                         <Slide direction="down" timeout={1650} in={true}>
-                            <Box pr="2%">
-                                <Button component={Link} to="/contact" color="inherit"> Contact </Button>
-                            </Box>
-                        </Slide>
-                        <Slide direction="down" timeout={1800} in={true}>
-                            <Box pr="2%">
-                                <Button component={Link} to="/resume" color="inherit"> Résumé </Button>
-                            </Box>
+                                <Grid item xs={1} alignItems="flex-end" alignContent="flex-end">
+                                    <Button className='navbar-button' component={Link} to="/HansGamboaResume.pdf" color="inherit"
+                                            style={{color: '#E9E9E9', fontWeight: 'bold'}} variant="outlined"> Résumé </Button>
+                                </Grid>
                         </Slide>
                     </Hidden>
-                </Toolbar>
-            </AppBar>
-        </div>
+                </Grid>
+            </Toolbar>
+        </AppBar>
     );
 }

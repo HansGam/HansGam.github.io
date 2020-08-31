@@ -1,8 +1,24 @@
 .about-container {
-  width: 100%;
-  padding-top: 20px;
-  text-align: center;
-  font-family: 'Garamond';
+  padding-top: 18%;
+  background-color: #222930;
+  color: #E9E9E9;
+  width: 50%;
+  margin: auto;
+}
+
+.about-typography2 {
+  //width: 50%;
+  margin: auto;
+  text-align: left;
+}
+
+.about-button:hover {
+  background-color: #3a4652 !important;
+}
+
+.navbar-button:hover {
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 @font-face {
