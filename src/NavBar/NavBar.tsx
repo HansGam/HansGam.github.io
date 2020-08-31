@@ -165,7 +165,7 @@ export default function NavBar() {
                         <Grid item xs={4}/>
                         <Slide direction="down" timeout={1650} in={true}>
                                 <Grid item xs={1} alignItems="flex-end" alignContent="flex-end">
-                                    <Button className='navbar-button' component={Link} to="/HansGamboaResume.pdf" color="inherit"
+                                    <Button className='navbar-button' component={Link} to="/resume" color="inherit"
                                             style={{color: '#E9E9E9', fontWeight: 'bold'}} variant="outlined"> Résumé </Button>
                                 </Grid>
                         </Slide>
