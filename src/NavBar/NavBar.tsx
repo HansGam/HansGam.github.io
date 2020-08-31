@@ -52,6 +52,10 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         padding: theme.spacing(3),
     },
+    button: {
+        fontFamily: 'Comic Sans',
+        fontWeight: 'bold',
+    }
 }));
 
 export default function NavBar() {
@@ -65,33 +69,33 @@ export default function NavBar() {
     const renderIcon = (label: String) => {
         switch (label) {
             case 'LinkedIn':
-                return <LinkedInIcon fontSize='large' color='primary' />;
+                return <LinkedInIcon fontSize='large' color='primary'/>;
             case 'Projects':
-                return <GitHubIcon fontSize='large' color='action' />;
+                return <GitHubIcon fontSize='large' color='action'/>;
             case 'Contact':
-                return <MailOutlineIcon fontSize='large' color='disabled' />;
+                return <MailOutlineIcon fontSize='large' color='disabled'/>;
             case 'Resume':
-                return <PortraitOutlinedIcon fontSize='large' color='error' />;
+                return <PortraitOutlinedIcon fontSize='large' color='inherit'/>;
         }
     }
     const drawer = (
         <div className="drawer">
-                <IconButton
-                    onClick={handleDrawerToggle}
-                    color="inherit"
-                >
-                    <ChevronRightIcon />
-                </IconButton>
+            <IconButton
+                onClick={handleDrawerToggle}
+                style={{color: '#E9E9E9'}}
+            >
+                <ChevronRightIcon/>
+            </IconButton>
             <Divider/>
             <List>
-                {['LinkedIn', 'Projects', 'Contact', 'Resume'].map((text, index) => (
+                {['LinkedIn', 'Projects', 'Resume', 'Contact'].map((text, index) => (
                     <ListItem component={Link} to={'/' + text.toLowerCase()}>
                         <Grid container direction="row" alignItems="center" spacing={3}>
                             <Grid item xs={3}>
                                 {renderIcon(text)}
                             </Grid>
                             <Grid item xs={3}>
-                                <ListItemText primary={text} style={{color: '#E9E9E9', fontWeight: 'bold'}}/>
+                                <ListItemText disableTypography primary={text} style={{fontFamily: "Trebuchet MS", color: '#E9E9E9'}}/>
                             </Grid>
                         </Grid>
                     </ListItem>
@@ -104,11 +108,12 @@ export default function NavBar() {
     return (
         <AppBar style={{background: '#4EB1BA'}}>
             <Toolbar>
-                <Grid container direction="row" justify="space-between" alignItems="center" spacing={1}>
+                <Grid container direction="row" justify="space-between" alignItems="center">
                     <Grid item>
                         <Slide direction="down" timeout={1000} in={true}>
                             <h2 className="h2-blinker">
-                                <MaterialLink color="inherit" href="https://HansGam.github.io/" className="appbar-homelink">
+                                <MaterialLink color="inherit" href="https://HansGam.github.io/"
+                                              className="appbar-homelink">
                                     Hans
                                 </MaterialLink>
                                 &nbsp;>
@@ -117,14 +122,16 @@ export default function NavBar() {
                         </Slide>
                     </Grid>
                     <Hidden lgUp>
-                        <Grid item>
-                            <IconButton
-                                onClick={handleDrawerToggle}
-                                color="inherit"
-                            >
-                                <MenuIcon/>
-                            </IconButton>
-                        </Grid>
+                        <Slide direction="down" timeout={1200} in={true}>
+                            <Grid item>
+                                <IconButton
+                                    onClick={handleDrawerToggle}
+                                    style={{color: '#E9E9E9'}}
+                                >
+                                    <MenuIcon/>
+                                </IconButton>
+                            </Grid>
+                        </Slide>
                         <Drawer
                             variant="temporary"
                             anchor='right'
@@ -144,30 +151,25 @@ export default function NavBar() {
                     </Hidden>
                     <Hidden mdDown>
                         <Slide direction="down" timeout={1200} in={true}>
-                            <Grid item xs={1} >
-                                <Button className='navbar-button' component='a' href="https://www.linkedin.com/in/hans-gamboa-073808155/" color="inherit"
-                                        style={{color: '#E9E9E9', fontWeight: 'bold'}}> LinkedIn </Button>
-                            </Grid>
+                                <Button className='navbar-button' component='a'
+                                        href="https://www.linkedin.com/in/hans-gamboa-073808155/" color="inherit"
+                                        style={{fontFamily: 'Trebuchet MS', color: '#E9E9E9', fontWeight: 'bold'}}> LinkedIn </Button>
                         </Slide>
                         <Slide direction="down" timeout={1350} in={true}>
-                            <Grid item xs={1} >
-                                <Button className='navbar-button' component='a' href="https://github.com/HansGam" color="inherit"
-                                        style={{color: '#E9E9E9', fontWeight: 'bold'}}> Projects </Button>
-                            </Grid>
+                                <Button className='navbar-button' component='a' href="https://github.com/HansGam"
+                                        color="inherit"
+                                        style={{fontFamily: 'Trebuchet MS', color: '#E9E9E9', fontWeight: 'bold'}}> Projects </Button>
                         </Slide>
                         <Slide direction="down" timeout={1500} in={true}>
-                            <Grid item xs={1} >
                                 <Button className='navbar-button' component='a' href="mailto:hdgamboa@gmail.com"
                                         color="inherit"
-                                        style={{color: '#E9E9E9', fontWeight: 'bold'}}> Contact </Button>
-                            </Grid>
+                                        style={{fontFamily: 'Arial !important', color: '#E9E9E9', fontWeight: 'bold'}}> Contact </Button>
                         </Slide>
                         <Grid item xs={4}/>
                         <Slide direction="down" timeout={1650} in={true}>
-                                <Grid item xs={1} alignItems="flex-end" alignContent="flex-end">
-                                    <Button className='navbar-button' component={Link} to="/resume" color="inherit"
-                                            style={{color: '#E9E9E9', fontWeight: 'bold'}} variant="outlined"> Résumé </Button>
-                                </Grid>
+                                <Button endIcon className='navbar-button' component={Link} to="/resume" color="inherit"
+                                        style={{fontFamily: 'Trebuchet MS', color: '#E9E9E9', fontWeight: 'bold'}}
+                                        variant="outlined"> Résumé </Button>
                         </Slide>
                     </Hidden>
                 </Grid>

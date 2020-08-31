@@ -1,5 +1,5 @@
 .h2-blinker {
-  background-color: #112D32;
+  background-color: #222930;
   border-radius: 12px;
   padding: 10px 10px 10px 10px;
   height: inherit;
@@ -11,6 +11,10 @@
 
 .appbar-homelink {
     text-decoration: none !important;
+}
+
+.appbar-homelink:hover {
+  color: #bfbfbf;
 }
 
 .navbar-button {
