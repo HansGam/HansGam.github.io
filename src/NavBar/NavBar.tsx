@@ -51,10 +51,6 @@ const useStyles = makeStyles((theme) => ({
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
-    },
-    button: {
-        fontFamily: 'Comic Sans',
-        fontWeight: 'bold',
     }
 }));
 
@@ -82,24 +78,55 @@ export default function NavBar() {
         <div className="drawer">
             <IconButton
                 onClick={handleDrawerToggle}
-                style={{color: '#E9E9E9'}}
+                style={{color: '#E9E9E9', marginBottom: 'auto'}}
             >
                 <ChevronRightIcon/>
             </IconButton>
-            <Divider/>
             <List>
-                {['LinkedIn', 'Projects', 'Resume', 'Contact'].map((text, index) => (
-                    <ListItem component={Link} to={'/' + text.toLowerCase()}>
-                        <Grid container direction="row" alignItems="center" spacing={3}>
-                            <Grid item xs={3}>
-                                {renderIcon(text)}
-                            </Grid>
-                            <Grid item xs={3}>
-                                <ListItemText disableTypography primary={text} style={{fontFamily: "Trebuchet MS", color: '#E9E9E9'}}/>
-                            </Grid>
+                <Divider />
+                <ListItem component={Link} to={'/linkedin'}>
+                    <Grid container direction="row" alignItems="center" spacing={3}>
+                        <Grid item xs={3}>
+                            {renderIcon('LinkedIn')}
                         </Grid>
-                    </ListItem>
-                ))}
+                        <Grid item xs={3}>
+                            <ListItemText disableTypography primary={'LinkedIn'} style={{fontSize: '18px', fontFamily: "Trebuchet MS", color: '#E9E9E9'}}/>
+                        </Grid>
+                    </Grid>
+                </ListItem>
+                <Divider />
+                <ListItem component={Link} to={'/projects'}>
+                    <Grid container direction="row" alignItems="center" spacing={3}>
+                        <Grid item xs={3}>
+                            {renderIcon('Projects')}
+                        </Grid>
+                        <Grid item xs={3}>
+                            <ListItemText disableTypography primary={'Projects'} style={{fontSize: '18px', fontFamily: "Trebuchet MS", color: '#E9E9E9'}}/>
+                        </Grid>
+                    </Grid>
+                </ListItem>
+                <Divider />
+                <ListItem component={Link} to={'/resume'}>
+                    <Grid container direction="row" alignItems="center" spacing={3}>
+                        <Grid item xs={3}>
+                            {renderIcon('Resume')}
+                        </Grid>
+                        <Grid item xs={3}>
+                            <ListItemText disableTypography primary={'Resume'} style={{fontSize: '18px', fontFamily: "Trebuchet MS", color: '#E9E9E9'}}/>
+                        </Grid>
+                    </Grid>
+                </ListItem>
+                <Divider />
+                <ListItem component={Link} to={'/contact'}>
+                    <Grid container direction="row" alignItems="center" spacing={3}>
+                        <Grid item xs={3}>
+                            {renderIcon('Contact')}
+                        </Grid>
+                        <Grid item xs={3}>
+                            <ListItemText disableTypography primary={'Contact'} style={{fontSize: '18px', fontFamily: "Trebuchet MS", color: '#E9E9E9'}}/>
+                        </Grid>
+                    </Grid>
+                </ListItem>
             </List>
         </div>
     )
@@ -163,7 +190,7 @@ export default function NavBar() {
                         <Slide direction="down" timeout={1500} in={true}>
                                 <Button className='navbar-button' component='a' href="mailto:hdgamboa@gmail.com"
                                         color="inherit"
-                                        style={{fontFamily: 'Arial !important', color: '#E9E9E9', fontWeight: 'bold'}}> Contact </Button>
+                                        style={{fontFamily: 'Trebuchet MS', color: '#E9E9E9', fontWeight: 'bold'}}> Contact </Button>
                         </Slide>
                         <Grid item xs={4}/>
                         <Slide direction="down" timeout={1650} in={true}>

@@ -7,13 +7,18 @@ import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 const theme = createMuiTheme();
 
 theme.typography.h3 = {
-    fontSize: '26px',
+    fontFamily: 'Trebuchet MS',
+    fontSize: '24px',
     [theme.breakpoints.up('md')]: {
-        fontSize: '50px',
+        fontSize: '32px',
+    },
+    [theme.breakpoints.up('lg')]: {
+        fontSize: '44px',
     },
 };
 
 theme.typography.body1 = {
+    fontFamily: 'Trebuchet MS',
     [theme.breakpoints.up('md')]: {
         fontSize: '16px',
     },
@@ -39,7 +44,7 @@ const About: React.FC = (props) => {
                             Want to know more?
                         </Typography>
                         <Button className="about-button" component='a' href="mailto:hdgamboa@gmail.com"
-                                style={{border: 'solid', borderColor: '#4EB1BA', color: '#E9E9E9'}}> Send Me a
+                                style={{fontFamily: 'Trebuchet MS', border: 'solid', borderColor: '#4EB1BA', color: '#E9E9E9'}}> Send Me a
                             Message </Button>
                 </div>
             </Fade>
