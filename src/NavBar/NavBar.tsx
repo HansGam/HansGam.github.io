@@ -151,7 +151,7 @@ export default function NavBar() {
                         </Slide>
                         <Slide direction="down" timeout={1350} in={true}>
                             <Grid item xs={1} >
-                                <Button className='navbar-button' component='a' href="https://HansGam.github.io/" color="inherit"
+                                <Button className='navbar-button' component='a' href="https://github.com/HansGam" color="inherit"
                                         style={{color: '#E9E9E9', fontWeight: 'bold'}}> Projects </Button>
                             </Grid>
                         </Slide>
