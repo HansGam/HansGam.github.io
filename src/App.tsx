@@ -4,7 +4,6 @@ import './App.css';
 import NavBar from "./NavBar/NavBar";
 import About from "./About/About";
 
-
 function App() {
     return (
 

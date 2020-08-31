@@ -27,7 +27,6 @@ const About: React.FC = (props) => {
         <ThemeProvider theme={theme}>
             <Fade in={true} timeout={1400} style={{transitionDelay: '1300ms'}}>
                 <div className="about-container">
-                    <div className="about-typography2">
                         <Typography variant="h3" color="inherit" gutterBottom>Hi, my name is Hans Gamboa.</Typography>
                         <Typography align="left" color="inherit" paragraph>I am a Software Engineer based in Los
                             Angeles, CA.
@@ -42,7 +41,6 @@ const About: React.FC = (props) => {
                         <Button className="about-button" component='a' href="mailto:hdgamboa@gmail.com"
                                 style={{border: 'solid', borderColor: '#4EB1BA', color: '#E9E9E9'}}> Send Me a
                             Message </Button>
-                    </div>
                 </div>
             </Fade>
         </ThemeProvider>

@@ -102,7 +102,7 @@ export default function NavBar() {
 
 
     return (
-        <AppBar style={{background: '#4EB1BA', marginBottom: '55%'}}>
+        <AppBar style={{background: '#4EB1BA'}}>
             <Toolbar>
                 <Grid container direction="row" justify="space-between" alignItems="center" spacing={1}>
                     <Grid item>
