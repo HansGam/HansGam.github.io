@@ -145,13 +145,13 @@ export default function NavBar() {
                     <Hidden mdDown>
                         <Slide direction="down" timeout={1200} in={true}>
                             <Grid item xs={1} >
-                                <Button className='navbar-button' component={Link} to="/linkedin" color="inherit"
+                                <Button className='navbar-button' component='a' href="https://www.linkedin.com/in/hans-gamboa-073808155/" color="inherit"
                                         style={{color: '#E9E9E9', fontWeight: 'bold'}}> LinkedIn </Button>
                             </Grid>
                         </Slide>
                         <Slide direction="down" timeout={1350} in={true}>
                             <Grid item xs={1} >
-                                <Button className='navbar-button' component={Link} to="/projects" color="inherit"
+                                <Button className='navbar-button' component='a' href="https://HansGam.github.io/" color="inherit"
                                         style={{color: '#E9E9E9', fontWeight: 'bold'}}> Projects </Button>
                             </Grid>
                         </Slide>
